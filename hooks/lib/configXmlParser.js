@@ -37,26 +37,12 @@ function readPreferences(cordovaContext) {
   // read hosts
   var hosts = constructHostsList(xmlPreferences);
 
-  // read ios team ID
-  var iosTeamId = getTeamIdPreference(xmlPreferences);
-
   return {
-    'hosts': hosts,
-    'iosTeamId': iosTeamId
+    'hosts': hosts
   };
 }
 
 // endregion
-
-// region Private API
-
-function getTeamIdPreference(xmlPreferences) {
-  if (xmlPreferences.hasOwnProperty('ios-team-id')) {
-    return xmlPreferences['ios-team-id'][0]['$']['value'];
-  }
-
-  return null;
-}
 
 /**
  * Construct list of host objects, defined in xml file.
